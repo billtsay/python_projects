@@ -21,7 +21,7 @@ Approaches:
   6. Find the shortest path and print it out. Any shortest path, so every time may get a different result if the path length is the same.
      
 Tests:
-  $ python solrup.test.py
+  $ python3 wikigame.test.py
 
 	------ disk cached tax holiday test ------------
 	loading forward .... 
