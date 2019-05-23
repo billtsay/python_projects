@@ -32,6 +32,7 @@ if __name__ == '__main__':
         title2 = wikipedia.page(end).title
         
 
+    # print out the original inputs and what we got to run with corrected titles.
     print("Original From [" + start + "] to [" + end + "]")
     print("Found and Run From [" + title1 + "] to [" + title2 + "]")
     
@@ -41,8 +42,11 @@ if __name__ == '__main__':
     from datetime import datetime
     
     time1 = datetime.now()
+    
     search_path_between_articles(article1, article2)
+    
     time2  = datetime.now()
     duration = time2 - time1
+    
     print("Total Time Used in seconds: " + str(duration.total_seconds()))    
     

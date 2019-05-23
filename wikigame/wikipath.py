@@ -13,7 +13,6 @@ See readme.txt
 '''
 
 import copy
-import wikipedia
 import wikipediaapi
 wiki = wikipediaapi.Wikipedia('en')
 
@@ -29,6 +28,8 @@ class DataDict(dict):
         super(DataDict,self).__init__(*args, **kw)
         self._marked_ = dict()
         
+    # mark and marked are used to mark if this article has loaded its links or backlinks already.
+    # marked means loaded.
     def mark(self, key):
         if self.get(key) != None:
             self._marked_[key] = True
@@ -48,6 +49,7 @@ class Article(object):
         self.data[self._title_] = [self._title_]
         self.op = op
         
+    # the article loads its children links or grand children ...
     def next(self):
         keys = list(self.data.keys())
         
@@ -63,7 +65,8 @@ class Article(object):
                     
     def size(self):
         return len(self.data)
-        
+
+# English sentences compare, ignore grammar errors.        
 def title_match(a, b):
     x = [x.lower() for x in a.split()] 
     y = [x.lower() for x in b.split()]
@@ -78,6 +81,10 @@ def list_match(l1, l2):
                 s.add((a,b))
     return s
 
+
+# intersect if keys overlapped, meaning finding the intersection
+# between two sets of keys.
+# if so, print out the path from start to end articles.
 def matched(forward, backward):
     m = list_match(forward.data.keys(), backward.data.keys())
     
@@ -138,7 +145,13 @@ def cached_search_path(start, end):
             forward.next()
             print("forward : " + str(forward.size()))
 
-# used in test cases.
+# the logic is:
+# if the links of parents have intersections, then we found the path from start to end.
+# if not, print out trace messages and load next generation of links from the article with links size
+# smaller.
+# based on six degrees theory, we should find the matches no more than three generations from each articles which
+# is manageable as each children links is about or less hundred, the third generation is about tens of thousands.
+# If we need more than four generations from any side that will reach millions, then we will need distributed computing like mapReduce etc.
 def search_path_between_articles(article1, article2):
     while not matched(article1, article2):    
         if article1.size() > article2.size():
@@ -149,8 +162,12 @@ def search_path_between_articles(article1, article2):
             print("loading forward .... ")
             article1.next()
             print("forward : " + str(article1.size()))
+
+
+
         
 if __name__ == "__main__":
+    import wikipedia
     #search_path("Web Bot", "Barack Obama")
     #print(wiki.page("Tax History").title)
     #print(wikipedia.page("Tax    history").title)

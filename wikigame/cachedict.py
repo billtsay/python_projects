@@ -13,6 +13,7 @@ See readme.txt
 '''
 from diskcache import Cache
 
+# just simple extension of Disk Cache.
 class DataDict(Cache):
     def __init__(self, *args, **kw):
         super(DataDict,self).__init__(*args, **kw)
