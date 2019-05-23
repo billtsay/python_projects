@@ -96,11 +96,12 @@ def matched(forward, backward):
                 l = len(y)
                 z = y
                 
-        print(z)
+        print(" -> ".join(z))
+        
         return True
     else:
         return False
-        
+            
 # depreciated, internal test    
 def search_path(start, end):
     forward = Article(start, repo=DataDict())
@@ -162,15 +163,18 @@ if __name__ == "__main__":
     barack_obama = wikipedia.page("Barack Obama").title
     tax_holiday = wikipedia.page("Tax holiday").title
     tax_credit = wikipedia.page("Tax Credit").title
+    joko = wikipedia.page('Joko Widodo').title
+    chicken = wikipedia.page('Chicken').title
     
     from datetime import datetime
     time1 = datetime.now()
     
-    search_path(web_bot, tax_holiday)
+    #search_path(web_bot, tax_holiday)
     #cached_search_path(web_bot, tax_holiday)
-    
+    #search_path(joko, chicken)
     #search_path("Web Bot", "Tax History")
     #search_path("Web Bot", "Tax History")
+    search_path('American Dream', 'Pre-Columbian era')
     
     time2  = datetime.now()
     duration = time2 - time1

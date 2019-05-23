@@ -19,9 +19,23 @@ Approaches:
   5. Wiki articles match should consider English language such as 'This is a book' matches '   this    is   a  BOOK' 
      since we are comparing wiki page titles. wikipath.title_match does that.
   6. Find the shortest path and print it out. Any shortest path, so every time may get a different result if the path length is the same.
-     
+
+Run: 
+  $ python3 wikipedia_game.py "Web Bot" "Tax Holiday"
+
+	Original From [Web Bot] to [Tax Holiday]
+	Found and Run From [Web Bot] to [Tax holiday]
+	loading forward .... 
+	forward : 32
+	loading backward .... 
+	backward : 296
+	loading forward .... 
+	forward : 13139
+	Web Bot -> Barack Obama -> Tax bracket -> Tax holiday
+	Total Time Used in seconds: 20.857258
+   
 Tests:
-  $ python3 wikigame.test.py
+  $ python wikigame.test.py
 
 	------ disk cached tax holiday test ------------
 	loading forward .... 

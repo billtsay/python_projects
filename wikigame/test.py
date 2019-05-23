@@ -34,8 +34,8 @@ class Test(unittest.TestCase):
     
     def test_tax_holiday(self):
         print("------ tax holiday test ------------")
-        web_bot = wikipedia.page("Web Bot").title
-        tax_holiday = wikipedia.page("Tax holiday").title
+        web_bot = find_real_title("Web Bot")
+        tax_holiday = find_real_title("Tax holiday")
         
         article1 = Article(web_bot, repo=DataDict())
         article2 = Article(tax_holiday, op=op_backlinks, repo=DataDict())
@@ -44,8 +44,8 @@ class Test(unittest.TestCase):
     
     def test_disk_cached(self):
         print("------ disk cached tax holiday test ------------")
-        web_bot = wikipedia.page("Web Bot").title
-        tax_holiday = wikipedia.page("Tax holiday").title
+        web_bot = find_real_title("Web Bot")
+        tax_holiday = find_real_title("Tax holiday")
         
         disk1 = DiskDict('web_bot')
         disk2 = DiskDict('tax_holiday')
@@ -59,13 +59,21 @@ class Test(unittest.TestCase):
 
     def test_impeachment(self):
         print("------ Impeachment test ------------")
-        impeachment = wikipedia.page("Impeachment").title
-        tower = wikipedia.page("Trump Tower").title
+        impeachment = find_real_title("Impeachment")
+        tower = find_real_title("Trump Tower")
         
         article1 = Article(impeachment, repo=DataDict())
         article2 = Article(tower, op=op_backlinks, repo=DataDict())
         run_test(article1, article2)
         print('=========================================')
+
+def find_real_title(title):
+    try:
+        x = wikipedia.page(title, auto_suggest=False).title
+    except:
+        x = wikipedia.page(title).title
+        
+    return x
 
 def run_test(article1, article2):
     time1 = datetime.now()
