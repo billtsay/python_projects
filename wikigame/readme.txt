@@ -21,19 +21,23 @@ Approaches:
      since we are comparing wiki page titles. wikipath.title_match does that.
   6. Find the shortest path and print it out. Any shortest path, so every time may get a different result if the path length is the same.
 
-Run: 
-  $ python3 wikipedia_game.py "Web Bot" "Tax Holiday"
+Run from console:
+  ~/python_projects$ export PYTHONPATH=.:$PYTHONPAHT
+  ~/python_projects$ python3 wikigame/wikipedia_game.py
+  Usage: python3 wikipedia_game.py "start_article" "end_article"!
 
-	Original From [Web Bot] to [Tax Holiday]
-	Found and Run From [Web Bot] to [Tax holiday]
-	loading forward .... 
-	forward : 32
-	loading backward .... 
-	backward : 296
-	loading forward .... 
-	forward : 13139
-	Web Bot -> Barack Obama -> Tax bracket -> Tax holiday
-	Total Time Used in seconds: 20.857258
+  ~/python_projects$ python3 wikigame/wikipedia_game.py "Web Bot" "Tax Holiday"
+
+  Original From [Web Bot] to [Tax Holiday]
+  Found and Run From [Web Bot] to [Tax holiday]
+  loading forward .... 
+  forward : 32
+  loading backward .... 
+  backward : 296
+  loading forward .... 
+  forward : 13139
+  Web Bot -> Pacific Northwest -> Taxation in Canada -> Tax holiday
+  Total Time Used in seconds: 16.400381
    
 Tests:
   $ python3 wikigame.test.py
