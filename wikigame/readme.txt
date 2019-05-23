@@ -35,7 +35,7 @@ Run:
 	Total Time Used in seconds: 20.857258
    
 Tests:
-  $ python wikigame.test.py
+  $ python3 wikigame.test.py
 
 	------ disk cached tax holiday test ------------
 	loading forward .... 
