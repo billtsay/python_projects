@@ -44,48 +44,45 @@ Tests:
 	backward : 296
 	loading forward .... 
 	forward : 13139
-	['Web Bot', 'Barack Obama', 'Tax credit', 'Tax holiday']
-	Total Time in seconds: 60.792068
+	Web Bot -> Pacific Northwest -> Taxation in Canada -> Tax holiday
+	Total Time in seconds: 62.488488
 	=========================================
 	------ Impeachment test ------------
-	.loading forward .... 
+	loading forward .... 
 	forward : 293
 	loading backward .... 
 	backward : 623
 	loading forward .... 
-	forward : 70352
-	['Impeachment', 'Andrew Johnson', 'Donald Trump', 'Trump Tower']
-	Total Time in seconds: 197.832535
+	forward : 70360
+	Impeachment -> Bill Clinton -> 2016 United States presidential debates -> Trump Tower
+	Total Time in seconds: 189.442386
 	=========================================
-	.------ random pages test ------------
-	['Meads Cup', 'Worsowut']
+	------ random pages test ------------
+	['Giləparqo', 'Neglected Aspects of Sufi Study']
 	loading forward .... 
-	forward : 67
+	forward : 111
 	loading backward .... 
-	backward : 4
+	backward : 13
 	loading backward .... 
-	backward : 53
-	loading backward .... 
-	backward : 30946
+	backward : 399
 	loading forward .... 
-	forward : 5524
-	['Meads Cup', 'New Zealand at the Rugby World Cup', 'Republic of Ireland', 'Economy of Tajikistan', 'List of towns and villages in Tajikistan', 'Worsowut']
-	Total Time in seconds: 287.891355
+	forward : 2135
+	Giləparqo -> Azerbaijan -> Mysticism -> Idries Shah -> Neglected Aspects of Sufi Study
+	Total Time in seconds: 41.948322
 	=========================================
-	.------ tax holiday test ------------
+	------ tax holiday test ------------
 	loading forward .... 
 	forward : 32
 	loading backward .... 
 	backward : 296
 	loading forward .... 
 	forward : 13139
-	['Web Bot', 'Barack Obama', 'Tax credit', 'Tax holiday']
-	Total Time in seconds: 19.146129
+	Web Bot -> Iran -> Taxation in Iran -> Tax holiday
+	Total Time in seconds: 22.031348
 	=========================================
-	.
 	----------------------------------------------------------------------
-	Ran 4 tests in 573.313s
-	
+	Ran 4 tests in 322.150s
+
 	OK
 
 To Do:
