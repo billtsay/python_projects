@@ -22,7 +22,7 @@ Approaches:
   6. Find the shortest path and print it out. Any shortest path, so every time may get a different result if the path length is the same.
 
 Run from console:
-  ~/python_projects$ export PYTHONPATH=.:$PYTHONPAHT
+  ~/python_projects$ export PYTHONPATH=.:$PYTHONPATH
   ~/python_projects$ python3 wikigame/wikipedia_game.py
   Usage: python3 wikipedia_game.py "start_article" "end_article"!
 
