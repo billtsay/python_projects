@@ -14,10 +14,8 @@ See readme.txt
 
 import copy
 import wikipediaapi
+from _cffi_backend import sizeof
 wiki = wikipediaapi.Wikipedia('en')
-
-def backlinks(page):
-    return page.backlinks
 
 op_backlinks = lambda page: page.backlinks
 op_links = lambda page: page.links
@@ -66,44 +64,19 @@ class Article(object):
     def size(self):
         return len(self.data)
 
-# English sentences compare, ignore grammar errors.        
-def title_match(a, b):
-    x = [x.lower() for x in a.split()] 
-    y = [x.lower() for x in b.split()]
-    
-    return x == y
-
-def list_match(l1, l2):
-    s = set()
-    for a in l1:
-        for b in l2:
-            if title_match(a,b):
-                s.add((a,b))
-    return s
-
-
 # intersect if keys overlapped, meaning finding the intersection
 # between two sets of keys.
 # if so, print out the path from start to end articles.
 def matched(forward, backward):
-    m = list_match(forward.data.keys(), backward.data.keys())
+    s = set(forward.data.keys()) & set(backward.data.keys())
     
-    if (len(m) > 0):
-        l = 10000
-        z = None
-        
-        # find min len of path
-        for k1, k2 in m:
-            x1 = forward.data[k1]
-            x2 = backward.data[k2]
-            x2.reverse()
-            y = x1[:-1] + x2
-            
-            if l > len(y):
-                l = len(y)
-                z = y
-                
-        print(" -> ".join(z))
+    if (len(s) > 0):
+        k = s.pop()
+        x1 = forward.data[k]
+        x2 = backward.data[k]
+        x2.reverse()
+
+        print(" -> ".join(x1[:-1] + x2))
         
         return True
     else:
