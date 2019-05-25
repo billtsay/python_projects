@@ -17,7 +17,7 @@ import unittest
 import wikipedia
 
 from wikigame.cachedict import DataDict as DiskDict
-from wikigame.faster_game import Folder, op_backlinks, search_path
+from wikigame.wikipedia_game import Wiki, op_backlinks, search_path
 
 
 class Test(unittest.TestCase):
@@ -30,8 +30,8 @@ class Test(unittest.TestCase):
         pages = wikipedia.random(2)
         print(pages)
         
-        article1 = Folder(pages[0], repo=dict())
-        article2 = Folder(pages[1], op=op_backlinks, repo=dict())
+        article1 = Wiki(pages[0], repo=dict())
+        article2 = Wiki(pages[1], op=op_backlinks, repo=dict())
         run_test(article1, article2)
         print('=========================================')
     
@@ -40,8 +40,8 @@ class Test(unittest.TestCase):
         web_bot = find_real_title("Web Bot")
         tax_holiday = find_real_title("Tax holiday")
         
-        article1 = Folder(web_bot, repo=dict())
-        article2 = Folder(tax_holiday, op=op_backlinks, repo=dict())
+        article1 = Wiki(web_bot, repo=dict())
+        article2 = Wiki(tax_holiday, op=op_backlinks, repo=dict())
         run_test(article1, article2)
         print('=========================================')
     
@@ -55,8 +55,8 @@ class Test(unittest.TestCase):
         disk1.clear()
         disk2.clear()
         
-        article1 = Folder(web_bot, repo=disk1)
-        article2 = Folder(tax_holiday, op=op_backlinks, repo=disk2)
+        article1 = Wiki(web_bot, repo=disk1)
+        article2 = Wiki(tax_holiday, op=op_backlinks, repo=disk2)
         run_test(article1, article2)
         print('=========================================')
 
@@ -65,8 +65,8 @@ class Test(unittest.TestCase):
         impeachment = find_real_title("Impeachment")
         tower = find_real_title("Trump Tower")
         
-        article1 = Folder(impeachment, repo=dict())
-        article2 = Folder(tower, op=op_backlinks, repo=dict())
+        article1 = Wiki(impeachment, repo=dict())
+        article2 = Wiki(tower, op=op_backlinks, repo=dict())
         run_test(article1, article2)
         print('=========================================')
 
