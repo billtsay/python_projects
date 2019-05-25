@@ -8,7 +8,9 @@ main program to run wikigame from CLI
 '''
 
 import sys
+
 import wikipedia
+
 from wikigame.wikipath import search_path_between_articles, Article, DataDict, op_backlinks
 
 

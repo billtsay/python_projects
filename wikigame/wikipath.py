@@ -13,8 +13,11 @@ See readme.txt
 '''
 
 import copy
+
 import wikipediaapi
-from _cffi_backend import sizeof
+
+from wikigame.cachedict import DataDict as CachedDict
+
 wiki = wikipediaapi.Wikipedia('en')
 
 op_backlinks = lambda page: page.backlinks
@@ -97,7 +100,6 @@ def search_path(start, end):
             forward.next()
             print("forward : " + str(forward.size()))
     
-from wikigame.cachedict import DataDict as CachedDict
 
 # depreciated, internal test    
 def cached_search_path(start, end):

@@ -20,6 +20,9 @@ Approaches:
   5. Wiki articles match should consider English language such as 'This is a book' matches '   this    is   a  BOOK' 
      since we are comparing wiki page titles. wikipath.title_match does that.
   6. Find the shortest path and print it out. Any shortest path, so every time may get a different result if the path length is the same.
+  
+Updated Approaches:
+  7. The wikigame.faster_game.py does the links comparison before loading more. Unlike the wikigame.wikipath.py that loads all children links before doing comparison.  
 
 Run from console:
   ~/python_projects$ export PYTHONPATH=.:$PYTHONPATH
@@ -38,9 +41,34 @@ Run from console:
   forward : 13139
   Web Bot -> Pacific Northwest -> Taxation in Canada -> Tax holiday
   Total Time Used in seconds: 16.400381
-   
+  
 Tests:
-  $ python3 wikigame.test.py
+  $ python3 wikigame/faster_test.py
+
+	------ disk cached tax holiday test ------------
+	Web Bot ->Iran ->Taxation in Iran ->Tax holiday
+	Total Time in seconds: 41.411679
+	=========================================
+	------ Impeachment test ------------
+	.Impeachment ->President of Pakistan ->Nawaz Sharif ->Trump Tower
+	Total Time in seconds: 4.306113
+	=========================================
+	.------ random pages test ------------
+	['Leonów, Lublin Voivodeship', 'Voluntary taxation']
+	Leonów, Lublin Voivodeship ->Poland ->Economy of India ->Tax ->Voluntary taxation
+	Total Time in seconds: 11.128884
+	=========================================
+	.------ tax holiday test ------------
+	Web Bot ->Iran ->Taxation in Iran ->Tax holiday
+	Total Time in seconds: 6.393393
+	=========================================
+	.
+	----------------------------------------------------------------------
+	Ran 4 tests in 68.829s
+	
+	OK
+
+  $ python3 wikigame/test.py
 
 	Finding files... done.
 	Importing test modules ... done.
