@@ -53,7 +53,7 @@ def search_path(forward, backward):
                 k = m.pop()
                 b = copy.copy(backward.path(k))
                 b.reverse()
-                print(" ->".join(forward.path(k)[:-1] + b))
+                print(" -> ".join(forward.path(k)[:-1] + b))
                 done = True
                 break
             

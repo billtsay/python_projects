@@ -46,20 +46,20 @@ Tests:
   $ python3 wikigame/faster_test.py
 
 	------ disk cached tax holiday test ------------
-	Web Bot ->Iran ->Taxation in Iran ->Tax holiday
+	Web Bot -> Iran -> Taxation in Iran -> Tax holiday
 	Total Time in seconds: 41.411679
 	=========================================
 	------ Impeachment test ------------
-	.Impeachment ->President of Pakistan ->Nawaz Sharif ->Trump Tower
+	.Impeachment -> President of Pakistan -> Nawaz Sharif -> Trump Tower
 	Total Time in seconds: 4.306113
 	=========================================
 	.------ random pages test ------------
 	['Leonów, Lublin Voivodeship', 'Voluntary taxation']
-	Leonów, Lublin Voivodeship ->Poland ->Economy of India ->Tax ->Voluntary taxation
+	Leonów, Lublin Voivodeship -> Poland -> Economy of India -> Tax -> Voluntary taxation
 	Total Time in seconds: 11.128884
 	=========================================
 	.------ tax holiday test ------------
-	Web Bot ->Iran ->Taxation in Iran ->Tax holiday
+	Web Bot -> Iran -> Taxation in Iran -> Tax holiday
 	Total Time in seconds: 6.393393
 	=========================================
 	.
