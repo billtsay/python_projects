@@ -10,7 +10,7 @@ import copy
 op_backlinks = lambda page: page.backlinks
 op_links = lambda page: page.links
 
-class Folder(object):
+class Wiki(object):
     def __init__(self, title, op=op_links, repo=dict()):
         self._title_ = title
         self.data = repo
@@ -85,8 +85,8 @@ if __name__ == '__main__':
     print("Original From [" + start + "] to [" + end + "]")
     print("Found and Run From [" + title1 + "] to [" + title2 + "]")
 
-    forward = Folder(title1, repo=dict())
-    backward = Folder(title2, op=op_backlinks, repo=dict())
+    forward = Wiki(title1, repo=dict())
+    backward = Wiki(title2, op=op_backlinks, repo=dict())
     
     from datetime import datetime
     
