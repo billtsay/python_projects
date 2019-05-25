@@ -26,7 +26,7 @@ class Wiki(object):
     def loads(self):
         keys = set(self.data.keys())
         for k in keys:
-            links = [t for t in self.op(wiki.page(k))]
+            links = [p for p in self.op(wiki.page(k))]
             for t in links:
                 if self.data.get(t) == None:
                     path = copy.copy(self.data[k])
@@ -43,7 +43,7 @@ def search_path(forward, backward):
     
     while not done:
         # load child links from smaller side
-        (s, l) = (forward, backward) if forward.size() < backward.size() else (backward, forward)    
+        (s, l) = (forward, backward) if forward.size() <= backward.size() else (backward, forward)    
         for links in s.loads():
             # compare one by one instead.
             m = l.match(set(links))
